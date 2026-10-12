@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A DAY IN THE LIFE // AUDIO LOG</title>
+    <!-- Silence Tailwind CDN warning -->
+    <script>
+      window.tailwind = { config: { corePlugins: { preflight: true } } };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bungee&family=Space+Mono:wght@400;700&family=Rubik:wght@700;800;900&display=swap");
+
+      body {
+        font-family: "Rubik", sans-serif;
+        background-color: #ffde00;
+        background-image:
+          radial-gradient(#000000 18%, transparent 19%),
+          linear-gradient(45deg, #00e599 25%, transparent 25%, transparent 75%, #00e599 75%, #00e599),
+          linear-gradient(45deg, #00e599 25%, #ffde00 25%, #ffde00 75%, #00e599 75%, #00e599);
+        background-size: 14px 14px, 48px 48px, 48px 48px;
+        background-position: 0 0, 0 0, 24px 24px;
+      }
+
+      .font-display { font-family: "Bungee", cursive; }
+      .font-mono-block { font-family: "Space Mono", monospace; }
+
+      .deck-chassis {
+        border: 4px solid #000;
+        box-shadow: 10px 10px 0px #000;
+      }
+      .deck-plate {
+        border: 3.5px solid #000;
+        box-shadow: 6px 6px 0px #000;
+        transition: all 0.15s cubic-bezier(0.2, 0, 0, 1);
+      }
+      .chunky-btn {
+        border: 3px solid #000;
+        box-shadow: 4px 4px 0px #000;
+        transition: all 0.08s ease;
+      }
+      .chunky-btn:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0px #000;
+      }
+      .chunky-btn:active {
+        transform: translate(3px, 3px);
+        box-shadow: 1px 1px 0px #000;
+      }
+      .chunky-btn:disabled {
+        background-color: #cbd5e1 !important;
+        color: #64748b !important;
+        transform: none;
+        box-shadow: 2px 2px 0px #000;
+        cursor: not-allowed;
+      }
+      .chunky-input {
+        border: 3px solid #000;
+        box-shadow: 3.5px 3.5px 0px #000;
+      }
+      .chunky-input:focus {
+        outline: none;
+        background-color: #fef08a;
+        box-shadow: 5px 5px 0px #00e599;
+      }
+
+      .screw-rivet {
+        width: 10px;
+        height: 10px;
+        background: #cbd5e1;
+        border: 2px solid #000;
+        border-radius: 50%;
+        position: relative;
+        display: inline-block;
+      }
+      .screw-rivet::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 0.5px;
+        width: 5px;
+        height: 2px;
+        background: #000;
+      }
+
+      @keyframes spin-reel {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .spinning-reel {
+        animation: spin-reel 1.5s linear infinite;
+      }
+
+      .zebra-caution {
+        background: repeating-linear-gradient(
+          -45deg,
+          #ff5277,
+          #ff5277 10px,
+          #000000 10px,
+          #000000 20px
+        );
+      }
+    </style>
+  </head>
+  <body class="text-black min-h-screen p-3 sm:p-5 flex items-center justify-center antialiased selection:bg-[#00E599] selection:text-black">
+
+    <div class="w-full max-w-xl bg-[#F8F9FA] deck-chassis rounded-[32px] p-4 sm:p-6 space-y-4 relative overflow-hidden">
+      <!-- Caution Top Strip -->
+      <div class="zebra-caution h-3.5 -mx-6 -mt-6 border-b-4 border-black mb-3"></div>
+
+      <!-- Top Rivets & Status -->
+      <div class="flex items-center justify-between px-1">
+        <div class="flex items-center gap-2">
+          <span class="screw-rivet"></span>
+          <span class="screw-rivet"></span>
+          <span class="text-[9px] font-mono-block font-black bg-black text-white px-2 py-0.5 rounded tracking-widest uppercase">
+            JOURNAL.VOX-01
+          </span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="text-[9px] font-mono-block font-black bg-[#00E599] border-2 border-black px-2 py-0.5 rounded-full shadow-[2px_2px_0px_#000] rotate-2">
+            MIC-ACTIVE
+          </span>
+          <span class="screw-rivet"></span>
+          <span class="screw-rivet"></span>
+        </div>
+      </div>
+
+      <!-- Station Header -->
+      <div class="bg-[#FF5277] text-white deck-plate rounded-2xl p-4 flex items-center justify-between gap-3 -rotate-0.5">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-[#00E599] text-black border-3.5 border-black flex items-center justify-center font-display text-2xl shadow-[4px_4px_0px_#000] -rotate-3 relative shrink-0">
+            🎙️
+          </div>
+          <div>
+            <h1 class="font-display text-xl sm:text-2xl tracking-tight leading-none drop-shadow-[2px_2px_0px_#000]">
+              A DAY IN THE LIFE
+            </h1>
+            <span class="text-[10px] font-mono-block font-bold bg-white text-black px-2 py-0.5 rounded inline-block mt-1 uppercase tracking-widest shadow-[2px_2px_0px_#000]">
+              STUDENT VOICE DIARY
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prompt Banner -->
+      <div class="bg-[#FEF08A] deck-plate rounded-2xl p-3.5 space-y-1 rotate-0.5">
+        <div class="flex items-center gap-2">
+          <span class="text-[9px] font-mono-block font-black bg-black text-[#FFDE00] px-1.5 py-0.5 rounded uppercase">
+            TODAY'S PROMPT
+          </span>
+          <span class="text-xs font-black text-black">Tell us about your day!</span>
+        </div>
+        <p class="text-xs text-zinc-800 leading-snug">
+          What did you do from morning until now? Speak clearly in English for 1–2 minutes.
+        </p>
+      </div>
+
+      <!-- Student Identification Deck -->
+      <div class="bg-[#70D6FF] deck-plate rounded-2xl p-4 grid grid-cols-2 gap-3 -rotate-0.5 relative">
+        <div class="absolute -top-3 left-4 bg-black text-white text-[9px] font-mono-block font-black px-2 py-0.5 rounded border border-white">
+          STUDENT BADGE
+        </div>
+        <div>
+          <label class="text-[10px] font-mono-block font-black uppercase text-black bg-white px-1.5 py-0.5 border-2 border-black rounded shadow-[2px_2px_0px_#000] inline-block">
+            FULL NAME
+          </label>
+          <input
+            id="studentName"
+            type="text"
+            placeholder="e.g. Siti Nurhaliza"
+            autocomplete="off"
+            class="w-full mt-1.5 px-3 py-2 rounded-xl text-xs font-black bg-white chunky-input"
+          />
+        </div>
+        <div>
+          <label class="text-[10px] font-mono-block font-black uppercase text-black bg-white px-1.5 py-0.5 border-2 border-black rounded shadow-[2px_2px_0px_#000] inline-block">
+            CLASS / GRADE
+          </label>
+          <input
+            id="studentClass"
+            type="text"
+            placeholder="e.g. 8-A"
+            autocomplete="off"
+            class="w-full mt-1.5 px-3 py-2 rounded-xl text-xs font-black bg-white chunky-input"
+          />
+        </div>
+      </div>
+
+      <!-- Recording Console Rack -->
+      <div class="bg-[#18181B] deck-plate rounded-3xl p-4 sm:p-5 text-center space-y-3.5 relative">
+        
+        <!-- HUD Header -->
+        <div class="flex items-center justify-between border-b-2 border-zinc-700 pb-2 px-1">
+          <div class="flex items-center gap-2">
+            <div class="flex items-center gap-1 bg-black px-2 py-1 rounded border border-zinc-700">
+              <span id="reel1" class="w-3.5 h-3.5 rounded-full border-2 border-dashed border-[#00E599] inline-block"></span>
+              <span class="text-[8px] font-mono-block text-zinc-400 font-bold">REEL</span>
+              <span id="reel2" class="w-3.5 h-3.5 rounded-full border-2 border-dashed border-[#00E599] inline-block"></span>
+            </div>
+            <span id="recDot" class="w-3 h-3 rounded-full bg-zinc-600 border-2 border-black"></span>
+            <span id="recStatus" class="text-[11px] font-mono-block font-black text-zinc-400 uppercase tracking-widest">
+              IDLE
+            </span>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="text-[9px] font-mono-block text-[#00E599] bg-black px-1.5 py-0.5 rounded border border-zinc-700">
+              PCM-WAV
+            </span>
+            <span id="timer" class="text-xs font-mono-block font-black text-black bg-[#FFDE00] border-2 border-black px-2.5 py-0.5 rounded-lg shadow-[2px_2px_0px_#000]">
+              00:00
+            </span>
+          </div>
+        </div>
+
+        <!-- Equalizer Display -->
+        <div class="w-full bg-black p-2 rounded-xl border-3 border-black shadow-[inset_0_3px_8px_rgba(0,0,0,0.9)] relative">
+          <div class="flex items-center justify-between px-2 pb-1 text-[8px] font-mono-block text-zinc-500 font-bold uppercase">
+            <span>-24dB</span>
+            <span>-12dB</span>
+            <span>-6dB</span>
+            <span>0dB</span>
+            <span class="text-rose-500 font-black">+3dB PEAK</span>
+          </div>
+          <canvas id="visualizerCanvas" width="360" height="64" class="w-full h-14 block rounded-lg"></canvas>
+        </div>
+
+        <!-- Microphone Trigger Button -->
+        <div class="flex flex-col items-center justify-center gap-1 py-1">
+          <button
+            type="button"
+            id="recBtn"
+            onclick="toggleRec()"
+            class="chunky-btn w-20 h-20 rounded-3xl bg-[#FF5277] hover:bg-[#ff2d57] active:scale-95 text-white flex items-center justify-center text-3xl border-3.5 border-black shadow-[5px_5px_0px_#000] cursor-pointer transition rotate-1 hover:rotate-0"
+          >
+            <i id="recIcon" class="fa-solid fa-microphone"></i>
+          </button>
+          <span id="recBtnHint" class="text-[10px] font-mono-block text-zinc-400 font-bold mt-1">Tap to start recording</span>
+        </div>
+
+        <!-- Audio Playback Preview -->
+        <div id="playerBox" class="hidden pt-2 border-t-2 border-zinc-800 flex items-center justify-between text-left">
+          <div>
+            <span class="text-[9px] font-mono-block font-black text-[#00E599] bg-black px-1.5 py-0.5 rounded border border-zinc-700 uppercase">
+              AUDIO READY
+            </span>
+            <p id="playbackStatus" class="text-[10px] text-zinc-400 font-bold font-mono-block mt-0.5">
+              Review before uploading
+            </p>
+          </div>
+          <button
+            type="button"
+            id="playPreviewBtn"
+            onclick="togglePlayback()"
+            class="chunky-btn bg-[#00E599] text-black px-4 py-2 rounded-xl text-xs font-black inline-flex items-center gap-2 cursor-pointer font-mono-block"
+          >
+            <i id="playPreviewIcon" class="fa-solid fa-play"></i>
+            <span id="playPreviewText">Dengarkan</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Submit Action Button -->
+      <button
+        type="button"
+        id="uploadBtn"
+        disabled
+        onclick="uploadToDrive()"
+        class="chunky-btn w-full bg-[#00E599] hover:bg-emerald-400 text-black text-xs font-black py-3 rounded-2xl inline-flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider font-mono-block shadow-[4px_4px_0px_#000]"
+      >
+        <i class="fa-solid fa-cloud-arrow-up text-sm"></i> SUBMIT AUDIO LOG
+      </button>
+
+      <!-- Feedback Banner -->
+      <div id="statusAlert" class="hidden p-3 rounded-2xl text-xs font-black text-center border-3 border-black deck-plate"></div>
+
+      <!-- Chassis Footer -->
+      <div class="flex items-center justify-between px-1 pt-1">
+        <span class="screw-rivet"></span>
+        <span class="text-[8px] font-mono-block font-black text-zinc-400">STUDENT DIARY LOG // VOICE SYSTEM</span>
+        <span class="screw-rivet"></span>
+      </div>
+
+    </div>
+
+    <script>
+      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwUK9WU0odUBJgt5130gOtqn6PzDqpcYILR2zz67dRu_2gipsLuN9AzHAoTyoXpdSxdRw/exec";
+      let mediaStream = null;
+      let audioCtx = null;
+      let sourceNode = null;
+      let processorNode = null;
+      let analyserNode = null;
+      let animFrameId = null;
+
+      let isRecording = false;
+      let timerTimer = null;
+      let seconds = 0;
+
+      // Audio recording PCM buffer
+      let leftChannelData = [];
+      let recordedBlob = null;
+      let currentBlobUrl = null;
+
+      // Universal HTML5 Audio player
+      const previewAudio = new Audio();
+      previewAudio.preload = "auto";
+
+      previewAudio.onended = () => {
+        resetPlaybackButton();
+      };
+
+      // --- Helper: Encode Raw Float32 PCM to standard 16-bit WAV Blob ---
+      function encodeWAV(samples, sampleRate) {
+        const buffer = new ArrayBuffer(44 + samples.length * 2);
+        const view = new DataView(buffer);
+
+        function writeString(view, offset, string) {
+          for (let i = 0; i < string.length; i++) {
+            view.setUint8(offset + i, string.charCodeAt(i));
+          }
+        }
+
+        /* RIFF identifier */
+        writeString(view, 0, 'RIFF');
+        /* file length */
+        view.setUint32(4, 36 + samples.length * 2, true);
+        /* RIFF type */
+        writeString(view, 8, 'WAVE');
+        /* format chunk identifier */
+        writeString(view, 12, 'fmt ');
+        /* format chunk length */
+        view.setUint32(16, 16, true);
+        /* sample format (raw PCM = 1) */
+        view.setUint16(20, 1, true);
+        /* channel count (mono = 1) */
+        view.setUint16(22, 1, true);
+        /* sample rate */
+        view.setUint32(24, sampleRate, true);
+        /* byte rate (sample rate * block align) */
+        view.setUint32(28, sampleRate * 2, true);
+        /* block align (channel count * bytes per sample) */
+        view.setUint16(32, 2, true);
+        /* bits per sample */
+        view.setUint16(34, 16, true);
+        /* data chunk identifier */
+        writeString(view, 36, 'data');
+        /* data chunk length */
+        view.setUint32(40, samples.length * 2, true);
+
+        // Convert Float32 (-1.0 to 1.0) to Signed 16-bit PCM (-32768 to 32767)
+        let offset = 44;
+        for (let i = 0; i < samples.length; i++, offset += 2) {
+          let s = Math.max(-1, Math.min(1, samples[i]));
+          view.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7FFF, true);
+        }
+
+        return new Blob([view], { type: 'audio/wav' });
+      }
+
+      function drawIdleVisualizer() {
+        const canvas = document.getElementById("visualizerCanvas");
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        const w = canvas.width;
+        const h = canvas.height;
+
+        ctx.fillStyle = "#000000";
+        ctx.fillRect(0, 0, w, h);
+
+        const numBars = 16;
+        const barSpacing = 6;
+        const totalSpacing = (numBars - 1) * barSpacing;
+        const barWidth = (w - 24 - totalSpacing) / numBars;
+        const startX = 12;
+
+        for (let i = 0; i < numBars; i++) {
+          const x = startX + i * (barWidth + barSpacing);
+          ctx.fillStyle = "#27272A";
+          ctx.fillRect(x, h - 7, barWidth, 4);
+        }
+      }
+
+      function startVisualizerLoop() {
+        const canvas = document.getElementById("visualizerCanvas");
+        const ctx = canvas.getContext("2d");
+        const bufferLength = analyserNode.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+
+        const numBars = 16;
+        const barSpacing = 6;
+        const totalSpacing = (numBars - 1) * barSpacing;
+        const barWidth = (canvas.width - 24 - totalSpacing) / numBars;
+        const startX = 12;
+
+        function renderFrame() {
+          animFrameId = requestAnimationFrame(renderFrame);
+          analyserNode.getByteFrequencyData(dataArray);
+
+          ctx.fillStyle = "#000000";
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+          const step = Math.floor(bufferLength / numBars);
+
+          for (let i = 0; i < numBars; i++) {
+            let sum = 0;
+            for (let j = 0; j < step; j++) {
+              sum += dataArray[i * step + j];
+            }
+            const val = sum / step;
+            const percent = val / 255;
+            const totalHeight = Math.max(4, percent * (canvas.height - 10));
+            const x = startX + i * (barWidth + barSpacing);
+
+            const brickHeight = 5;
+            const brickGap = 2;
+            const numBricks = Math.ceil(totalHeight / (brickHeight + brickGap));
+
+            for (let b = 0; b < numBricks; b++) {
+              const brickY = canvas.height - 5 - b * (brickHeight + brickGap);
+
+              if (b > 6) {
+                ctx.fillStyle = "#FF5277";
+              } else if (b > 3) {
+                ctx.fillStyle = "#FFDE00";
+              } else {
+                ctx.fillStyle = "#00E599";
+              }
+
+              ctx.fillRect(x, brickY, barWidth, brickHeight);
+            }
+          }
+        }
+
+        renderFrame();
+      }
+
+      function stopVisualizerLoop() {
+        if (animFrameId) {
+          cancelAnimationFrame(animFrameId);
+          animFrameId = null;
+        }
+        drawIdleVisualizer();
+      }
+
+      async function toggleRec() {
+        if (!isRecording) {
+          try {
+            stopAudioPlayback();
+
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            audioCtx = new AudioContextClass();
+            if (audioCtx.state === "suspended") {
+              await audioCtx.resume();
+            }
+
+            mediaStream = await navigator.mediaDevices.getUserMedia({
+              audio: {
+                echoCancellation: true,
+                noiseSuppression: true,
+                autoGainControl: true,
+              },
+            });
+
+            sourceNode = audioCtx.createMediaStreamSource(mediaStream);
+            analyserNode = audioCtx.createAnalyser();
+            analyserNode.fftSize = 128;
+            analyserNode.smoothingTimeConstant = 0.5;
+
+            // Buffer setup (mono channel)
+            leftChannelData = [];
+            const bufferSize = 4096;
+            processorNode = audioCtx.createScriptProcessor(bufferSize, 1, 1);
+
+            processorNode.onaudioprocess = (e) => {
+              if (!isRecording) return;
+              const input = e.inputBuffer.getChannelData(0);
+              // Clone chunk to prevent mutating reference
+              leftChannelData.push(new Float32Array(input));
+            };
+
+            sourceNode.connect(analyserNode);
+            sourceNode.connect(processorNode);
+            processorNode.connect(audioCtx.destination);
+
+            startVisualizerLoop();
+
+            isRecording = true;
+            document.getElementById("recIcon").className = "fa-solid fa-stop";
+            document.getElementById("recBtnHint").innerText = "Tap to finish recording";
+            document.getElementById("recDot").className =
+              "w-3 h-3 rounded-full bg-[#FF5277] animate-ping border-2 border-black";
+            document.getElementById("recStatus").innerText = "REC LIVE";
+            document.getElementById("recStatus").className =
+              "text-[11px] font-mono-block font-black text-[#FF5277] uppercase tracking-widest";
+
+            document.getElementById("reel1").classList.add("spinning-reel");
+            document.getElementById("reel2").classList.add("spinning-reel");
+
+            seconds = 0;
+            document.getElementById("timer").innerText = "00:00";
+            timerTimer = setInterval(() => {
+              seconds++;
+              const m = String(Math.floor(seconds / 60)).padStart(2, "0");
+              const s = String(seconds % 60).padStart(2, "0");
+              document.getElementById("timer").innerText = `${m}:${s}`;
+            }, 1000);
+          } catch (e) {
+            console.error("Mic error:", e);
+            alert("Izin mikrofon ditolak atau mikrofon tidak terdeteksi.");
+          }
+        } else {
+          // Stop recording
+          isRecording = false;
+          clearInterval(timerTimer);
+
+          if (mediaStream) {
+            mediaStream.getTracks().forEach((t) => t.stop());
+          }
+          if (sourceNode && processorNode) {
+            sourceNode.disconnect();
+            processorNode.disconnect();
+          }
+          stopVisualizerLoop();
+
+          // Merge collected chunks into a single Float32Array
+          let totalLength = 0;
+          for (let i = 0; i < leftChannelData.length; i++) {
+            totalLength += leftChannelData[i].length;
+          }
+
+          if (totalLength === 0) {
+            alert("Rekaman terlalu singkat atau tidak ada audio.");
+            return;
+          }
+
+          const mergedSamples = new Float32Array(totalLength);
+          let offset = 0;
+          for (let i = 0; i < leftChannelData.length; i++) {
+            mergedSamples.set(leftChannelData[i], offset);
+            offset += leftChannelData[i].length;
+          }
+
+          // Build WAV Blob
+          recordedBlob = encodeWAV(mergedSamples, audioCtx.sampleRate);
+
+          if (currentBlobUrl) {
+            URL.revokeObjectURL(currentBlobUrl);
+          }
+          currentBlobUrl = URL.createObjectURL(recordedBlob);
+          previewAudio.src = currentBlobUrl;
+          previewAudio.load();
+
+          document.getElementById("recIcon").className = "fa-solid fa-microphone";
+          document.getElementById("recBtnHint").innerText = "Recording finished! Listen or re-record.";
+          document.getElementById("recDot").className =
+            "w-3 h-3 rounded-full bg-zinc-600 border-2 border-black";
+          document.getElementById("recStatus").innerText = "IDLE";
+          document.getElementById("recStatus").className =
+            "text-[11px] font-mono-block font-black text-zinc-400 uppercase tracking-widest";
+
+          document.getElementById("reel1").classList.remove("spinning-reel");
+          document.getElementById("reel2").classList.remove("spinning-reel");
+
+          document.getElementById("playerBox").classList.remove("hidden");
+          document.getElementById("uploadBtn").disabled = false;
+          resetPlaybackButton();
+        }
+      }
+
+      async function togglePlayback() {
+        if (!recordedBlob || !previewAudio.src) return;
+
+        if (previewAudio.paused) {
+          try {
+            await previewAudio.play();
+            document.getElementById("playPreviewIcon").className = "fa-solid fa-pause";
+            document.getElementById("playPreviewText").innerText = "Jeda";
+            document.getElementById("playbackStatus").innerText = "Playing audio...";
+            document.getElementById("reel1").classList.add("spinning-reel");
+            document.getElementById("reel2").classList.add("spinning-reel");
+          } catch (err) {
+            console.error("Playback error:", err);
+            resetPlaybackButton();
+          }
+        } else {
+          stopAudioPlayback();
+        }
+      }
+
+      function stopAudioPlayback() {
+        previewAudio.pause();
+        previewAudio.currentTime = 0;
+        resetPlaybackButton();
+      }
+
+      function resetPlaybackButton() {
+        document.getElementById("playPreviewIcon").className = "fa-solid fa-play";
+        document.getElementById("playPreviewText").innerText = "Dengarkan";
+        document.getElementById("playbackStatus").innerText = "Ready for review";
+        document.getElementById("reel1").classList.remove("spinning-reel");
+        document.getElementById("reel2").classList.remove("spinning-reel");
+      }
+
+      function blobToBase64(blob) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            const res = reader.result;
+            resolve(res.includes(",") ? res.split(",")[1] : res);
+          };
+          reader.onerror = reject;
+          reader.readAsDataURL(blob);
+        });
+      }
+
+      async function uploadToDrive() {
+        const name = document.getElementById("studentName").value.trim();
+        const sClass = document.getElementById("studentClass").value.trim();
+
+        if (!name || !sClass) {
+          alert("Lengkapi Nama Siswa dan Kelas terlebih dahulu!");
+          return;
+        }
+
+        if (!recordedBlob) {
+          alert("Rekam audio terlebih dahulu.");
+          return;
+        }
+
+        const alertBox = document.getElementById("statusAlert");
+        const uploadBtn = document.getElementById("uploadBtn");
+
+        uploadBtn.disabled = true;
+        alertBox.className =
+          "p-3.5 rounded-2xl text-xs font-black text-center border-3 border-black bg-[#FFDE00] text-black block deck-plate rotate-1";
+        alertBox.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-1.5"></i> MENGIRIM REKAMAN KE DRIVE...`;
+
+        try {
+          const base64Audio = await blobToBase64(recordedBlob);
+          const payload = {
+            student: name,
+            class: sClass,
+            word: "A Day in the Life Log",
+            audioData: base64Audio,
+            mimeType: "audio/wav"
+          };
+
+          await fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify(payload),
+          });
+
+          alertBox.className =
+            "p-3.5 rounded-2xl text-xs font-black text-center border-3 border-black bg-[#00E599] text-black block deck-plate -rotate-1";
+          alertBox.innerHTML = `✅ REKAMAN TERKIRIM: Diary harian milik <strong>${name} (${sClass})</strong> berhasil disimpan.`;
+        } catch (err) {
+          console.error("Upload error:", err);
+          alertBox.className =
+            "p-3.5 rounded-2xl text-xs font-black text-center border-3 border-black bg-[#FF5277] text-white block deck-plate";
+          alertBox.innerHTML = `❌ GAGAL MENGIRIM. Silakan periksa koneksi internet Anda.`;
+          uploadBtn.disabled = false;
+        }
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        drawIdleVisualizer();
+      });
+    </script>
+  </body>
+</html>
